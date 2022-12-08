@@ -10,7 +10,12 @@ class RegisterController extends Controller
     {
         return view('layouts.register', [
             "title" => "Register",
-            "active" => "register"
+            
         ]);
+    }
+
+    public function postRegister()
+    {
+        return request()->all();
     }
 }
