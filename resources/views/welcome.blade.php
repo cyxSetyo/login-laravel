@@ -3,7 +3,7 @@
 
 <head>
     <title>SB Admin 2 - Dashboard</title>
-    @include('layouts.head')
+    @include('template.head')
 </head>
 
 <body id="page-top">
@@ -12,7 +12,7 @@
     <div id="wrapper">
 
         <!-- Sidebar -->
-        @include('layouts.leftNavbar')
+        @include('template.leftNavbar')
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -22,7 +22,7 @@
             <div id="content">
 
                 <!-- Topbar -->
-                @include('layouts.topNavbar')
+                @include('template.topNavbar')
                 <!-- End of Topbar -->
 
                 <!-- Begin Page Content -->
@@ -360,7 +360,7 @@
             <!-- End of Main Content -->
 
             <!-- Footer -->
-            @include('layouts.footer')
+            @include('template.footer')
             <!-- End of Footer -->
 
         </div>
@@ -394,7 +394,7 @@
         </div>
     </div>
 
-    @include('layouts.script')
+    @include('template.script')
 
 </body>
 
