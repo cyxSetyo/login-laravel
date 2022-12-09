@@ -3,7 +3,7 @@
 
 <head>
     <title>SB Admin 2 - Dashboard</title>
-    @include('template.head')
+    @include('template.body')
 </head>
 
 <body id="page-top">

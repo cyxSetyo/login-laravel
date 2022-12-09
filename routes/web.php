@@ -19,15 +19,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login', function () {
-    return view('layouts.login', [
-        'title' => 'User Login'
-    ]);
-});
 
 //register
 Route::get('/register', [RegisterController::class, 'Register']);
 Route::post('/register', [RegisterController::class, 'postRegister']);
 
 //login
+Route::get('/login', [LoginController::class, 'Login']);
 Route::post('/login', [LoginController::class, 'postLogin']);
