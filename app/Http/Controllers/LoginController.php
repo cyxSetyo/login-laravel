@@ -18,22 +18,25 @@ class LoginController extends Controller
     public function postLogin(Request $request)
     {
         //dd($request->all());
-        $validate = $request->validate([
+        $authented = $request->validate([
+            'email' => ['required', 'email:dns'],
+            'password' => ['required']
+        ]);
+        //dd($authented);
+                $validate = $request->validate([
             'email' => 'required|email',
             'password' => 'required'
         ]);
 
-        $validate ['password'] = bcrypt($validate['password']);
+        //dd('Berhasil Login');
+        //$validate ['password'] = bcrypt($validate['password']);
         if (Auth::attempt($validate)) {
             # code...
             $request->session()->regenerate();
 
-            return redirect()->intended('welcome');
+            return redirect()->intended('/');
         }
         
-        return back()->withErrors([
-            'email' => 'Email Dont Match',
-            'password' => 'Password Dont Match'
-        ]);
-    }
+        return back()->with('loginError', 'Login Failed!!!');
+    }   
 }

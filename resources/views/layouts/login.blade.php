@@ -17,8 +17,14 @@
                         <div class="p-5">
 
                             @if (session()->has('success'))
-                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
                                 {{ session('success') }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                            @endif
+                            @if (session()->has('loginError'))
+                            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                                {{ session('loginError') }}
                                 <button type="button" class="close" data-dismiss="alert" aria-label="Close"></button>
                             </div>
                             @endif
@@ -30,11 +36,10 @@
                                 @csrf
                                 <div class="form-group">
                                     <input type="email" class="form-control form-control-user @error('email')
-                                        is-invalide
-                                    @enderror"
-                                        id="exampleInputEmail" aria-describedby="emailHelp"
-                                        placeholder="Enter Email Address..." name="email">
-                                        @error('username')
+                                        is-invalid
+                                    @enderror" id="exampleInputEmail" aria-describedby="emailHelp"
+                                        placeholder="Enter Email Address..." name="email" value="{{ old('email') }}">
+                                        @error('email')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                           </div>
@@ -42,11 +47,9 @@
                                 </div>
                                 <div class="form-group">
                                     <input type="password" name="password" class="form-control form-control-user @error('password')
-                                    is-invalide
-                                    @enderror"
-                                        id="exampleInputPassword" placeholder="Password">
-
-                                        @error('name')
+                                    is-invalid
+                                    @enderror" id="exampleInputPassword" placeholder="Password">
+                                        @error('password')
                                         <div class="invalid-feedback">
                                             {{ $message }}
                                           </div>
