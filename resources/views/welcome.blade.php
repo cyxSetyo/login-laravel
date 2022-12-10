@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('template.body')
 
-<head>
-    <title>SB Admin 2 - Dashboard</title>
-    @include('template.body')
-</head>
-
+@section('content')
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -396,6 +391,6 @@
 
     @include('template.script')
 
-</body>
+</body>    
+@endsection
 
-</html>
