@@ -1,7 +1,10 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\RegisterController;
+use Illuminate\Auth\Events\Login;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,17 +18,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome', [
-        'title' => 'Dashboard'
-    ]);
-});
 
-
+//dashboard
+Route::get('/', [DashboardController::class, 'Dashboard']);
 //register
 Route::get('/register', [RegisterController::class, 'Register']);
 Route::post('/register', [RegisterController::class, 'postRegister']);
 
 //login
-Route::get('/login', [LoginController::class, 'Login']);
+Route::get('/login', [LoginController::class, 'Login'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'postLogin']);
+//logout
+Route::post('/logout', [LoginController::class, 'postLogout']);
