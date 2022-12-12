@@ -18,10 +18,6 @@ class LoginController extends Controller
     public function postLogin(Request $request)
     {
         //dd($request->all());
-        $authented = $request->validate([
-            'email' => ['required', 'email:dns'],
-            'password' => ['required']
-        ]);
         //dd($authented);
                 $validate = $request->validate([
             'email' => 'required|email',
@@ -40,14 +36,14 @@ class LoginController extends Controller
         return back()->with('loginError', 'Login Failed!!!');
     }   
 
-    public function postLogout(Request $request)
+    public function postLogout()
     {
         Auth::logout();
  
-        $request->session()->invalidate();
+        Request()->session()->invalidate();
      
-        $request->session()->regenerateToken();
+        Request()->session()->regenerateToken();
      
-        return redirect('logout');
+        return redirect('/login');
     }
 }

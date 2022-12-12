@@ -20,13 +20,13 @@ use Illuminate\Support\Facades\Route;
 
 
 //dashboard
-Route::get('/', [DashboardController::class, 'Dashboard']);
+Route::get('/', [DashboardController::class, 'Dashboard'])->middleware('auth');
 //register
-Route::get('/register', [RegisterController::class, 'Register']);
+Route::get('/register', [RegisterController::class, 'Register'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'postRegister']);
 
 //login
 Route::get('/login', [LoginController::class, 'Login'])->name('login')->middleware('guest');
 Route::post('/login', [LoginController::class, 'postLogin']);
 //logout
-Route::post('/logout', [LoginController::class, 'postLogout']);
+Route::post('/logout', [LoginController::class, 'postLogout'])->middleware('auth');

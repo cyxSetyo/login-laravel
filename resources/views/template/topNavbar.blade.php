@@ -189,12 +189,10 @@
                                     Activity Log
                                 </a>
                                 <div class="dropdown-divider"></div>
-                                <form action="logout" method="POST">
+                                <form class="user" action="logout" method="POST">
                                     @csrf 
-                                    <button type="button" data-toggle="modal" data-target="#logoutModal" class="dropdown-item"><i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Logout</button>
-                                    <a class="dropdown-item" >
-                                        
-                                    </a>
+                                    <button type="submit"  class="dropdown-item">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>Logout</button>
                                 </form>
                             </div>
                         </li>
