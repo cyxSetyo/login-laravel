@@ -30,7 +30,12 @@ class LoginController extends Controller
             # code...
             $request->session()->regenerate();
 
-            return redirect()->intended('/');
+            if (Auth::user()->user_type == 'Administrator'){
+                return redirect()->intended('/'); // admin dashboard path
+            } else {
+                return redirect()->intended('/WelcomeMember'); // member dashboard path
+            }
+            
         }
         
         return back()->with('loginError', 'Login Failed!!!');
@@ -47,12 +52,4 @@ class LoginController extends Controller
         return redirect('/login');
     }
 
-    protected function redirectTo()
-    {
-        if (Auth::user()->user_type == 'Administrator'){
-            return '/';  // admin dashboard path
-        } else {
-            return 'home';  // member dashboard path
-        }
-    }
 }

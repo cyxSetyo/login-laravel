@@ -18,12 +18,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware(['auth', 'isAdmin'])->group(function () {
-    Route::get('/', [DashboardController::class, 'Dashboard'])->name('dashboard');
-    return view('/');
-  });
+
 //dashboard
-//Route::get('/', [DashboardController::class, 'Dashboard'])->middleware('auth');
+Route::middleware(['auth', 'isAdmin'])->group(function () {
+  Route::get('/', [DashboardController::class, 'DashboardAdmin'])->middleware('auth');
+});
+Route::get('/WelcomeMember', [DashboardController::class, 'DashboardMember'])->middleware('auth');
+
 //register
 Route::get('/register', [RegisterController::class, 'Register'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'postRegister']);
