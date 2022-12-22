@@ -22,4 +22,10 @@ class DashboardController extends Controller
         ]);
     }
 
+    public function Create()
+    {
+        return view('layouts.create', [
+            'title' => 'Create Ticket'
+        ]);
+    }
 }

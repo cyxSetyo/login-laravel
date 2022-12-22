@@ -25,6 +25,9 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
 });
 Route::get('/WelcomeMember', [DashboardController::class, 'DashboardMember'])->middleware('auth');
 
+//createTicket
+Route::post('/create', [DashboardController::class, 'Create']);
+
 //register
 Route::get('/register', [RegisterController::class, 'Register'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'postRegister']);
