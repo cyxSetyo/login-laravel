@@ -45,7 +45,17 @@
                                         <form>
                                           <div class="form-group">
                                             <label for="recipient-name" class="col-form-label">Recipient:</label>
-                                            <input type="text" class="form-control" id="recipient-name">
+                                            <!-- DROPDOWN -->
+                                            <div class="btn-group">
+                                                <button class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                                  Small button
+                                                </button>
+                                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                                                    <li><a class="dropdown-item" href="#">Action</a></li>
+                                                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                                                    <li><a class="dropdown-item" href="#">Something else here</a></li>
+                                                  </ul>
+                                              </div>
                                           </div>
                                           <div class="form-group">
                                             <label for="message-text" class="col-form-label">Message:</label>
